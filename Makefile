@@ -3,11 +3,17 @@ VERSION := 0.5.4
 # Name of this service/application
 SERVICE_NAME := redis-operator
 
+# Repository user for this image
+REPOSITORY_USER := spotahome
+
 # Docker image name for this project
-IMAGE_NAME := spotahome/$(SERVICE_NAME)
+IMAGE_NAME := $(REPOSITORY_USER)/$(SERVICE_NAME)
+
+# Repository host for this project
+REPOSITORY_HOST := quay.io
 
 # Repository url for this project
-REPOSITORY := quay.io/$(IMAGE_NAME)
+REPOSITORY := $(REPOSITORY_HOST)/$(IMAGE_NAME)
 
 # Shell to use for running scripts
 SHELL := $(shell which bash)
