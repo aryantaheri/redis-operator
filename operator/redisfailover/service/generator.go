@@ -2,6 +2,7 @@ package service
 
 import (
 	"fmt"
+	"strconv"
 
 	appsv1beta2 "k8s.io/api/apps/v1beta2"
 	corev1 "k8s.io/api/core/v1"
@@ -64,7 +65,7 @@ func generateRedisService(rf *redisfailoverv1alpha2.RedisFailover, labels map[st
 			OwnerReferences: ownerRefs,
 			Annotations: map[string]string{
 				"prometheus.io/scrape": "true",
-				"prometheus.io/port":   "http",
+				"prometheus.io/port":   strconv.Itoa(exporterPort),
 				"prometheus.io/path":   "/metrics",
 			},
 		},
